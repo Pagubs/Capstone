@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 For Kotlin:
 
 kotlin
-Copy code
+
 package com.example.doorbellapp
 
 import android.os.Bundle
