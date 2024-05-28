@@ -37,7 +37,7 @@ Open MainActivity.java or MainActivity.kt and set up the button click listener:
 For Java:
 
 java
-Copy code
+
 package com.example.doorbellapp;
 
 import android.os.Bundle;
