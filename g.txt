@@ -1,3 +1,43 @@
+Open Android Studio and create a new project:
+
+Select "New Project".
+Choose "Empty Activity".
+Name your project (e.g., "DoorbellApp").
+Set the package name and save location.
+Choose the language (Java/Kotlin).
+Set the Minimum API level.
+Set up the necessary permissions in the AndroidManifest.xml:
+
+xml
+
+<uses-permission android:name="android.permission.INTERNET" />
+
+Step 2: Design the User Interface
+Open activity_main.xml and design your layout:
+
+xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button_doorbell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Ring Doorbell" />
+</RelativeLayout>
+
+Step 3: Handle Button Presses
+Open MainActivity.java or MainActivity.kt and set up the button click listener:
+
+For Java:
+
+java
+Copy code
 package com.example.doorbellapp;
 
 import android.os.Bundle;
@@ -14,9 +54,41 @@ public class MainActivity extends AppCompatActivity {
 
         Button doorbellButton = findViewById(R.id.button_doorbell);
         doorbellButton.setOnClickListener(v -> {
-            
+          
             Toast.makeText(this, "Doorbell Rang!", Toast.LENGTH_SHORT).show();
-           
+          
         });
     }
 }
+For Kotlin:
+
+kotlin
+Copy code
+package com.example.doorbellapp
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val doorbellButton: Button = findViewById(R.id.button_doorbell)
+        doorbellButton.setOnClickListener {
+            Toast.makeText(this, "Doorbell Rang!", Toast.LENGTH_SHORT).show()
+           
+        }
+    }
+}
+Step 4: Integrate Push Notifications (Optional)
+Add Firebase to your project:
+
+Follow the official Firebase documentation to add Firebase to your Android project.
+Add the Firebase Cloud Messaging (FCM) dependency in your build.gradle file:
+gradle
+
+implementation 'com.google.firebase:firebase-messaging:XX.XX.X'
